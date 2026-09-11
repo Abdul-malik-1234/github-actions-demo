@@ -1,0 +1,13 @@
+name: Second Workflow
+on:
+  workflow_dispatch
+env:
+  message1: This is from global env variable
+jobs:
+  job1:
+    runs-on: ubuntu-22.04
+    env:
+      message2: This is from jobs env variable
+    steps: 
+      - name: Print messages
+      run: echo "${{ env.message1 }} ${{ env.message2}}"
