@@ -11,4 +11,5 @@ jobs:
     steps: 
       - name: Print messages
         run: echo "${{ env.message1 }} ${{ env.message2}}"
-        message3: This from steps env variable
+        env:
+          message3: This from steps env variable
