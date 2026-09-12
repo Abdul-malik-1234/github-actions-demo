@@ -10,6 +10,6 @@ jobs:
       message2: This is from jobs env variable
     steps: 
       - name: Print messages
-        run: echo "${{ env.message1 }} ${{ env.message2}}"
+        run: echo "${{ env.message1 }} ${{ env.message2}} ${{ env.message3 }}"
         env:
           message3: This from steps env variable
