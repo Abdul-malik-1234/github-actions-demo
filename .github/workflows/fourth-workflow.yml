@@ -1,0 +1,15 @@
+name: Fourth Workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Code
+        uses: actions/checkout@v4
+      - name: Run Code
+        run: python test.py
+  
