@@ -22,6 +22,6 @@ jobs:
       - name: Show Version
         run: python --version
       - name: Run code
-        run: python template.py
+        run: python lazy.py
         env:
           APP_ENV: staging
