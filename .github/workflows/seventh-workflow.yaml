@@ -16,7 +16,7 @@ jobs:
       - name: Fetch code
         uses: actions/checkout@v4
       - name: Setup Python
-        uses: actions/checkout@v5
+        uses: actions/setup-python@v5
         with:
           python: ${{matrix.python-version}}
       - name: Show Version
