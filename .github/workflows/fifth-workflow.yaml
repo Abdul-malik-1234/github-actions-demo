@@ -18,6 +18,8 @@ jobs:
     needs:
       job1
     steps:
+      - name: Fetch code
+        uses: actions/checkout@v4
       - name: Step2 from job2
         run: python script2.py
   job3:
@@ -25,6 +27,8 @@ jobs:
     needs:
       job2
     steps:
+      - name: Fetch code
+        uses: actions/checkout@v4
       - name: Step3 from job3
         run: python script3.py
   job4:
@@ -32,6 +36,8 @@ jobs:
     needs:
       job2
     steps:
+      - name: Fetch code
+        uses: actions/checkout@v4
       - name: Step4 from job4
         run: python script4.py
   job5:
@@ -39,5 +45,7 @@ jobs:
     needs:
       [job3,job4]
     steps:
+      - name: Fetch code
+        uses: actions/checkout@v4
       - name: Step5 from job5
         run: python script5.py  
