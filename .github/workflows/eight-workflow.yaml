@@ -1,0 +1,24 @@
+name: Eight Workflow
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+          matrix:
+            python-version: ["3.11","3.12"]
+    steps:
+      - name: Fetch Code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/checkout@v5
+        with:
+          python-version: ${{matrix.python-version}}
+      - name: Setup dependencies
+        run: pip install pytest pytest-html
+      
+  
