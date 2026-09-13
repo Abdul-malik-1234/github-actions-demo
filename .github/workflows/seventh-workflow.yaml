@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v5
         with:
           python: ${{matrix.python-version}}
+      - name: Show Version
+        run: python --version
       - name: Run code
         run: python script1.py
         env:
