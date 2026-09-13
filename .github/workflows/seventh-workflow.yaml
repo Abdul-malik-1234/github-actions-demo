@@ -22,6 +22,6 @@ jobs:
       - name: Show Version
         run: python --version
       - name: Run code
-        run: python script1.py
+        run: python template.py
         env:
           APP_ENV: staging
