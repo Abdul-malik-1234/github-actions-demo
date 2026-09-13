@@ -1,4 +1,4 @@
-name: Matrix test
+name: Seventh Workflow
 
 on:
   workflow_dispatch:
