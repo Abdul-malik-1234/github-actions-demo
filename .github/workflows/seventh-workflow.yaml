@@ -22,6 +22,6 @@ jobs:
       - name: Show Version
         run: python --version
       - name: Run code
-        run: python lazy.py
+        run: python legacy_check.py
         env:
           APP_ENV: staging
