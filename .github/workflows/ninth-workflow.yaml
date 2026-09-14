@@ -1,0 +1,19 @@
+name: Ninth Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check Node version
+        run: node -v
+      - name: Run Code
+        run: node JavaScript-Scripts/helloWorld.js
