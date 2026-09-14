@@ -21,4 +21,4 @@ jobs:
       - name: Run code
         env:
           APP_ENV: staging
-        run: python script1.py
+        run: python Python-Scripts/script1.py
