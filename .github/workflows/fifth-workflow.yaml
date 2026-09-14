@@ -12,7 +12,7 @@ jobs:
       - name: Fetch code
         uses: actions/checkout@v4
       - name: Step1 from job1
-        run: python script1.py
+        run: python Python-Scripts/script1.py
   job2:
     runs-on: ubuntu-latest
     needs:
@@ -21,7 +21,7 @@ jobs:
       - name: Fetch code
         uses: actions/checkout@v4
       - name: Step2 from job2
-        run: python script2.py
+        run: python Python-Scripts/script2.py
   job3:
     runs-on: ubuntu-latest
     needs:
@@ -30,7 +30,7 @@ jobs:
       - name: Fetch code
         uses: actions/checkout@v4
       - name: Step3 from job3
-        run: python script3.py
+        run: python Python-Scripts/script3.py
   job4:
     runs-on: ubuntu-latest
     needs:
@@ -39,7 +39,7 @@ jobs:
       - name: Fetch code
         uses: actions/checkout@v4
       - name: Step4 from job4
-        run: python script4.py
+        run: python Python-Scripts/script4.py
   job5:
     runs-on: ubuntu-latest
     needs:
@@ -48,4 +48,4 @@ jobs:
       - name: Fetch code
         uses: actions/checkout@v4
       - name: Step5 from job5
-        run: python script5.py  
+        run: python Python-Scripts/script5.py  
