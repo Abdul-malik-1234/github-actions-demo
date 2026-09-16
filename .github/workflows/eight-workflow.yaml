@@ -41,9 +41,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Add venv to Environment Path
+        run: |
+          echo "$GITHUB_WORKSPACE/venv/bin" >> $GITHUB_PATH
+          echo "PYTHONPATH=$GITHUB_WORKSPACE/venv" >> $GITHUB_ENV
       - name: Check Pytest version & Run tests
         run: |
-          sudo export PYTHONPATH=$PYTHONPATH:$(pwd)/venv
-          sudo export PATH=$PATH:$(pwd)/venv/bin
           pytest --version
           pytest -v
