@@ -43,7 +43,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Check Pytest version & Run tests
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/venv
-          export PATH=$PATH:$(pwd)/venv/bin
+          sudo export PYTHONPATH=$PYTHONPATH:$(pwd)/venv
+          sudo export PATH=$PATH:$(pwd)/venv/bin
           pytest --version
           pytest -v
