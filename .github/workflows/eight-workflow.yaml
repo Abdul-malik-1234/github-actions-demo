@@ -41,7 +41,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Check Pytest version & Run tests
-        run: 
+        run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)/./.venv
           export PATH=$PATH:$(pwd)/./.venv/bin
           pytest --version
