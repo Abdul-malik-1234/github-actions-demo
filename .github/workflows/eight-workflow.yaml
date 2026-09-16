@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  job1:
+  build:
     runs-on: ubuntu-latest
     strategy:
           matrix:
@@ -20,13 +20,14 @@ jobs:
           python-version: ${{matrix.python-version}}
       - name: Setup dependencies
         run: pip install pytest pytest-html
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+          matrix:
+            python-version: ["3.11","3.12"]
+    steps:
       - name: Check Pytest version
         run: pytest --version
       - name: Run Tests
-        run: pytest --html=report.html
-      - name: Upload test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-report
-          path: report.html
+        run: pytest -v
   
