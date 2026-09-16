@@ -47,5 +47,5 @@ jobs:
           echo "PYTHONPATH=$GITHUB_WORKSPACE/venv" >> $GITHUB_ENV
       - name: Check Pytest version & Run tests
         run: |
-          pytest --version
-          pytest -v
+          python -m pytest --version
+          python -m pytest -v
