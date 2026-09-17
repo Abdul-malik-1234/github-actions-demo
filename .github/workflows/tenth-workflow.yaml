@@ -1,0 +1,19 @@
+name: ENV VARIABLES
+
+on:
+  workflow_dispatch
+
+env:
+  var1 : "I am Workflow Scoped"
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      var2 : "I am Job Scoped"
+    steps:
+      - name: "Run hello world"
+        run: echo "Hello World"
+        env:
+          var3: "This is Step Scoped"
+          
+  
