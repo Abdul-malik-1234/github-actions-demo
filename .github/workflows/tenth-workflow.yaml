@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "Hello World'
           echo "$WORKFLOW_VAR"
-          echo "$JOB_VAR" # not defined here
-          echo "$STEP_VAR" # not defined here
+          echo "JOB_VAR is not defined in this scope" # not defined here
+          echo "STEP_VAR is not defined in this scope" # not defined here
         
       
