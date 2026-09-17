@@ -6,14 +6,23 @@ on:
 env:
   var1 : "I am Workflow Scoped"
 jobs:
-  job1:
+  job-1:
     runs-on: ubuntu-latest
     env:
       var2 : "I am Job Scoped"
     steps:
-      - name: "Run hello world"
-        run: echo "Hello World"
+      - name: "I am executing Job1"
         env:
           var3: "This is Step Scoped"
-          
-  
+        run: |
+          echo "$var1"  #available here
+          echo "$var2"  #available here
+          echo "$var3"  #available only here
+  job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "I am executing Job2"
+        run: |
+          echo "$var1" #available here
+          echo "$var2" #not available here
+          echo "$var3" #not available here
