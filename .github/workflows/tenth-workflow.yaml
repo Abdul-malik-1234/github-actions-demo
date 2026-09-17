@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: "Job2"
         run: |
-          echo "Hello World'
+          echo "Hello World"
           echo "$WORKFLOW_VAR"
           echo "JOB_VAR is not defined in this scope" # not defined here
           echo "STEP_VAR is not defined in this scope" # not defined here
