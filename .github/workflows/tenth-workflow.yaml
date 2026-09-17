@@ -1,28 +1,28 @@
 name: ENV VARIABLES
-
-on:
-  workflow_dispatch
-
+on: 
+  workflow_dispatch:
 env:
-  var1 : "I am Workflow Scoped"
+  WORKFLOW_VAR: "I am workflow-scoped var"
 jobs:
-  job-1:
-    runs-on: ubuntu-latest
+  job1:
     env:
-      var2 : "I am Job Scoped"
-    steps:
-      - name: "I am executing Job1"
-        env:
-          var3: "This is Step Scoped"
-        run: |
-          echo "$var1"  #available here
-          echo "$var2"  #available here
-          echo "$var3"  #available only here
-  job-2:
+      JOB_VAR: "This is job-scoped var"
+    name: "Job-1"
     runs-on: ubuntu-latest
     steps:
-      - name: "I am executing Job2"
+      - name: "Job1"
+        env:
+          STEP_VAR: "This is a job-scoped var"
+        run: echo "Hello World"
+  job2:
+    runs-on: ubuntu-latest
+    name: "This is 2nd Job"
+    steps:
+      - name: "Job2"
         run: |
-          echo "$var1" #available here
-          echo "$var2" #not available here
-          echo "$var3" #not available here
+          echo "Hello World'
+          echo "$WORKFLOW_VAR"
+          echo "$JOB_VAR" # not defined here
+          echo "$STEP_VAR" # not defined here
+        
+      
