@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: "Job1"
         env:
-          STEP_VAR: "This is a job-scoped var"
+          STEP_VAR: "This is a step-scoped var"
         run: echo "Hello World"
   job2:
     runs-on: ubuntu-latest
