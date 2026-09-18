@@ -1,3 +1,4 @@
+name: Passing Vars
 on:
   workflow_dispatch:
 jobs:
