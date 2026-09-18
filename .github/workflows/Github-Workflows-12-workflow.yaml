@@ -11,7 +11,7 @@ jobs:
         id: get-var
         run: |
           echo "Hello World :)"
-          echo "version: v1.2.3.4" >> $GITHUB_OUTPUT
+          echo "version= v1.2.3.4" >> $GITHUB_OUTPUT
   job2:
     runs-on: ubuntu-latest
     needs:
