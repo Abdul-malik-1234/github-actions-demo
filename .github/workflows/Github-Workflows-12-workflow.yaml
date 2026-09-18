@@ -1,0 +1,24 @@
+name: Practice-Passing-Vars
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get-var.outputs.version }}
+    steps:
+      - name: This is Job1
+        id: get-var
+        run: |
+          echo "Hello World :)"
+          echo "version: v1.2.3.4" >> $GITHUB_OUTPUT
+  job2:
+    runs-on: ubuntu-latest
+    needs:
+      job1
+    steps:
+      - name: This is Job2
+        run: echo "${{ needs.job1.outputs.version }}"
+        
+      
+        
