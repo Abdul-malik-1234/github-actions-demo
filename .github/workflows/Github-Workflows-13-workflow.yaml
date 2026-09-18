@@ -22,6 +22,8 @@ jobs:
   prodution:
     runs-on: ubuntu-22.04
     environment: production-environment
+    needs:
+      staging
     env:
       EXAMPLE_REPOSITORY_SECRET: ${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
       EXAMPLE_REPOSITORY_VARIABLE: ${{ vars.EXAMPLE_REPOSITORY_VARIABLE }}
