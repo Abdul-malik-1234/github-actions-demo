@@ -1,0 +1,38 @@
+name: Secrets and Variables
+on:
+  workflow_dispatch:
+jobs:
+  staging:
+    runs-on: ubuntu-22.04
+    environment: staging-environment
+    env:
+      EXAMPLE_REPOSITORY_SECRET: ${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
+      EXAMPLE_REPOSITORY_VARIABLE: ${{ vars.EXAMPLE_REPOSITORY_VARIABLE }}
+      
+      EXAMPLE_ENVIRONMENT_SECRET: ${{ secrets.EXAMPLE_ENVIRONMENT_SECRET }}
+      EXAMPLE_ENVIRONMENT_VARIABLE: ${{ vars.EXAMPLE_ENVIRONMENT_VARIABLE }}
+
+    steps:
+      - name: Welcome to staging environment
+        run: |
+          echo "${{ env.EXAMPLE_REPOSITORY_SECRET }}"
+          echo "${{ env.EXAMPLE_REPOSITORY_VARIABLE }}"
+          echo "${{ env.EXAMPLE_ENVIRONMENT_SECRET }}"
+          echo "${{ env.EXAMPLE_ENVIRONMENT_VARIABLE }}"
+  prodution:
+    runs-on: ubuntu-22.04
+    environment: production-environment
+    env:
+      EXAMPLE_REPOSITORY_SECRET: ${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
+      EXAMPLE_REPOSITORY_VARIABLE: ${{ vars.EXAMPLE_REPOSITORY_VARIABLE }}
+      
+      EXAMPLE_ENVIRONMENT_SECRET: ${{ secrets.EXAMPLE_ENVIRONMENT_SECRET }}
+      EXAMPLE_ENVIRONMENT_VARIABLE: ${{ vars.EXAMPLE_ENVIRONMENT_VARIABLE }}
+
+    steps:
+      - name: Welcome to production environment
+        run: |
+          echo "${{ env.EXAMPLE_REPOSITORY_SECRET }}"
+          echo "${{ env.EXAMPLE_REPOSITORY_VARIABLE }}"
+          echo "${{ env.EXAMPLE_ENVIRONMENT_SECRET }}"
+          echo "${{ env.EXAMPLE_ENVIRONMENT_VARIABLE }}"
