@@ -1,0 +1,32 @@
+name: Runner types
+on:
+  workflow_dispatch: 
+jobs:
+  #Github hosted runners
+  ubuntu-runner:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get Os info
+        run: |
+          echo " ${{ runner.os }} - ${{ runner.arch }} "
+          echo " ${{ runner.name }} "
+  windows-runner:
+    runs-on: windows-2022
+    needs:
+      ubuntu-runner
+    steps:
+      - name: Get Windows Runner info
+        run: |
+          echo "${{ runner.os }}-${{ runner.arch }}"
+          echo " ${{ runner.name }}"
+  macos-runner:
+    runs-on: macos-13
+    needs:
+      windows-runner
+    steps:
+      - name: Get MacOs Runner info
+        run: |
+          echo "${{runner.os}}-${{ runner.arch }}"
+          echo "${{ runner.name }}"
+  
+  
