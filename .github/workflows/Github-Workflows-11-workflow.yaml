@@ -1,0 +1,21 @@
+name: Passing Vars
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      app_version: ${{ steps.generate_var.outputs.version }}
+    steps:
+      - name: Running job1
+        id: generate_var
+        run: |
+          echo "Hello World :)"
+          echo "version=v1.2.3" >> $GITHUB_OUTPUT
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Use Variable from Job 1
+        run: |
+          echo "The version from Job1 is: ${{ needs.job1.outputs.app_version }}"

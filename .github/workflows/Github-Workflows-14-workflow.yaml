@@ -1,0 +1,17 @@
+name: Practice Workflow
+on:
+  workflow_dispatch:
+jobs:
+  staging-environment:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: This is staging
+        run: echo "Hello World in Staging :)"
+  production-environment:
+    needs: staging-environment
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: This is production
+        run: echo "Hello World in Production :)"
