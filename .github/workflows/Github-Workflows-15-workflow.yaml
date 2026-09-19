@@ -20,7 +20,7 @@ jobs:
           echo "${{ runner.os }}-${{ runner.arch }}"
           echo " ${{ runner.name }}"
   macos-runner:
-    runs-on: macos-13
+    runs-on: macos-latest
     needs:
       windows-runner
     steps:
