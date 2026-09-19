@@ -1,15 +1,20 @@
-name: Second Workflow
+name: Second-Workflow-ENV-Variables
 on:
-  workflow_dispatch
+  workflow_dispatch:
 env:
-  message1: This is from global env variable
+  workflow_message: "I am defined on workflow level"
+
 jobs:
   job1:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     env:
-      message2: This is from jobs env variable
-    steps: 
-      - name: Print messages
-        run: echo "${{ env.message1 }} ${{ env.message2}} ${{ env.message3 }}"
+      job1_message: "I am defined in job1 level"
+    steps:
+      - name: Executing step level
         env:
-          message3: This from steps env variable
+          step_message: "I am defined in message level"
+        run: |
+          echo "Workflow-message:$workflow_message"
+          echo "Job1-message:$job1_message"
+          echo "Step-message:$step_message"
+
