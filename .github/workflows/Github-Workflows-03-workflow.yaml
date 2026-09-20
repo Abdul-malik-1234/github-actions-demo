@@ -1,12 +1,9 @@
 name: Third Workflow
-
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 jobs:
   job:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello World
         run: echo "Hello World :)"
-    
